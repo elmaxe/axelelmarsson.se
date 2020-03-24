@@ -73,9 +73,9 @@ app.use(express.urlencoded({
 //     }
 // }))
 
-app.listen(port, () => {
-    console.info(`Listening on port ${port}!`);
-});
+//app.listen(port, () => {
+//    console.info(`Listening on port ${port}!`);
+//});
 
 app.use('/public', express.static(path.join(__dirname, 'public')))
 
@@ -86,10 +86,10 @@ app.get('*', (req, res) => {
 })
 
 const httpServer = http.createServer(app)
-// const httpsServer = https.createServer({
-//     key: fs.readFileSync('./key.pem'),
-//     cert: fs.readFileSync('./cert.pem'),
-//     passphrase: "12345"
-// }, app)
-httpServer.listen(8080)
-// httpsServer.listen(8443)
+const httpsServer = https.createServer({
+     key: fs.readFileSync('../../ELMARSSON_CERTS/v2/privkey.pem', 'utf8'),
+     cert: fs.readFileSync('../../ELMARSSON_CERTS/v2/cert.pem'),
+     ca: fs.readFileSync('../../ELMARSSON_CERTS/v2/chain.pem', 'utf8')
+}, app)
+httpServer.listen(4000)
+httpsServer.listen(8443)
