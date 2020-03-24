@@ -1,0 +1,72 @@
+.Page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-size: calc(25px + 1vh + 2vw);
+    margin: unset;
+    font-family: 'Inconsolata', monospace;
+}
+
+.AXELRUTA {
+    height: 30vh;
+    margin-bottom: 8vh;
+}
+
+.AXEL {
+    /* width: 30%; */
+    height: 90%;
+    /* object-fit: cover; */
+    transform: rotate(90deg);
+}
+
+.Metatext {
+    font-size: calc(13px + 1vw);
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+    font-family: 'Inconsolata', monospace;
+    /* margin-bottom: 5%; */
+}
+
+.Bar {
+    width: 50vh;
+}
+
+.Images {
+    width: 10%;
+    margin: calc(1px + 1vh);
+    padding: 1vh;
+}
+
+.Images:hover {
+    /* background-color: lightgreen; */
+    background-color: gold;
+}
+
+.CV {
+    width: 8%;
+    /* margin-bottom: 10px; */
+}
+
+p {
+    width: 50vh;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.Fötter {
+    position: absolute;
+    bottom: 0;
+    font-size: calc(5px + 1vh);
+    margin-bottom: 1vh;
+    color: rgb(100, 100, 100)
+}
