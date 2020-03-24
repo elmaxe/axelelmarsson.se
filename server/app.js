@@ -88,8 +88,8 @@ app.get('*', (req, res) => {
 const httpServer = http.createServer(app)
 const httpsServer = https.createServer({
      key: fs.readFileSync('../../ELMARSSON_CERTS/v2/privkey.pem', 'utf8'),
-     cert: fs.readFileSync('../../ELMARSSON_CERTS/v2/cert.pem'),
+     cert: fs.readFileSync('../../ELMARSSON_CERTS/v2/cert.pem', 'utf8'),
      ca: fs.readFileSync('../../ELMARSSON_CERTS/v2/chain.pem', 'utf8')
 }, app)
-httpServer.listen(4000)
+httpServer.listen(8000)
 httpsServer.listen(8443)
