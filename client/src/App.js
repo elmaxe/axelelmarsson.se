@@ -11,7 +11,7 @@ const App = () => {
     return (
         <div className="Page">
             <div className="AXELRUTA">
-                <img src={Island2019} alt="Axel Elmarsson" className="AXEL" title="Nämen hallå! Detta är taget på Island sommaren 2019. Foto: Jesper Sjöholm"/>
+                <img src={Island2019} alt="Axel Elmarsson" className="AXEL" title="Nämen hallå! Denna bild är tagen på Island sommaren 2019. Foto: Jesper Sjöholm"/>
             </div>
             <div>
                 <h1>Axel Elmarsson</h1>
