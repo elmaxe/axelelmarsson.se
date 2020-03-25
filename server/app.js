@@ -77,6 +77,10 @@ app.use(express.urlencoded({
 //    console.info(`Listening on port ${port}!`);
 //});
 
+app.get('/.well-known/acme-challenge/smTStr3Ceu73PaoBuDWu2sIV_XYXrTSm4pUEcbjUTew', (req, res) => {
+	res.sendFile(__dirname + '/.well-known/acme-challenge/smTStr3Ceu73PaoBuDWu2sIV_XYXrTSm4pUEcbjUTew')
+})
+
 app.use('/public', express.static(path.join(__dirname, 'public')))
 
 app.use(express.static(path.join(__dirname, '../client/build')))
@@ -86,10 +90,10 @@ app.get('*', (req, res) => {
 })
 
 const httpServer = http.createServer(app)
-const httpsServer = https.createServer({
-     key: fs.readFileSync('../../ELMARSSON_CERTS/v2/privkey.pem', 'utf8'),
-     cert: fs.readFileSync('../../ELMARSSON_CERTS/v2/cert.pem', 'utf8'),
-     ca: fs.readFileSync('../../ELMARSSON_CERTS/v2/chain.pem', 'utf8')
-}, app)
+//const httpsServer = https.createServer({
+//     key: fs.readFileSync('../../axelelmarsson_certs/privkey.pem', 'utf8'),
+//     cert: fs.readFileSync('../../axelelmarsson_certs/cert.pem', 'utf8'),
+//     ca: fs.readFileSync('../../axelelmarsson_certs/chain.pem', 'utf8')
+//}, app)
 httpServer.listen(8000)
-httpsServer.listen(8443)
+//httpsServer.listen(8443)
