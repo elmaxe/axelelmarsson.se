@@ -23,7 +23,7 @@ const App = () => {
                     <p>
                         <a
                             href="mailto:axel.elmarsson@gmail.com"
-                            title="Mejla mig om du vill, men föredrar brev! \s"
+                            title="Mejla mig om du vill, men föredrar brev! /s"
                             >
                             <img src={MailIcon} alt="E-mail" className="Images"/>
                         </a>
