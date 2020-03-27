@@ -67,6 +67,7 @@ p {
     position: absolute;
     bottom: 0;
     font-size: calc(5px + 1vh);
+    font-family: 'Inconsolata', monospace;
     margin-bottom: 1vh;
     color: rgb(100, 100, 100)
 }
