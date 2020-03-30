@@ -19,7 +19,6 @@ var morgan = require('morgan')
 // const redis = require('redis')
 const uuid4 = require('uuid4');
 const helmet = require('helmet')
-
 // let RedisStore = require('connect-redis')(session)
 // let redisClient = redis.createClient()
 
@@ -49,6 +48,16 @@ app.use(morgan('common', {
 app.use(express.urlencoded({
     extended: true,
 }));
+
+app.use((req, res, next) => {
+	if (req.headers.host === "moist.axelelmarsson.se") {
+		console.log("Redirect to moist")
+		res.redirect('http://78.82.60.238:9999')
+	} else {
+		next()
+	}
+})
+
 
 // const cookieMaxAge = 60*60*2
 
