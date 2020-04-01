@@ -19,6 +19,8 @@ var morgan = require('morgan')
 // const redis = require('redis')
 const uuid4 = require('uuid4');
 const helmet = require('helmet')
+const subdomain = require('express-subdomain')
+const httpProxy = require('http-proxy')
 // let RedisStore = require('connect-redis')(session)
 // let redisClient = redis.createClient()
 
@@ -51,12 +53,12 @@ app.use(express.urlencoded({
 
 app.use((req, res, next) => {
 	if (req.headers.host === "moist.axelelmarsson.se") {
-		console.log("Redirect to moist")
-		res.redirect('http://78.82.60.238:9999')
+		res.redirect("http://78.82.60.238:9999")
 	} else {
 		next()
 	}
 })
+//app.use(subdomain('moist', moist))
 
 
 // const cookieMaxAge = 60*60*2
@@ -98,11 +100,20 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'))
 })
 
-const httpServer = http.createServer(app)
+//const httpServer = http.createServer(app)
 //const httpsServer = https.createServer({
 //     key: fs.readFileSync('../../axelelmarsson_certs/privkey.pem', 'utf8'),
 //     cert: fs.readFileSync('../../axelelmarsson_certs/cert.pem', 'utf8'),
 //     ca: fs.readFileSync('../../axelelmarsson_certs/chain.pem', 'utf8')
 //}, app)
-httpServer.listen(8000)
+//httpServer.listen(8000)
 //httpsServer.listen(8443)
+httpProxy.createServer({
+	hostnameOnly: true,
+	router: {
+		'axelelmarsson.se': '127.0.0.1:8000',
+		'
+
+moist.axelelmarsson.se': '127.0.0.1:9999'
+	}
+}).listen(8000)
