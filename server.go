@@ -44,12 +44,12 @@ func main() {
         //Därav kodduplicering
 
         //Moist
-        moist, _ := url.Parse("http://192.168.10.171:9999")
+        moist, _ := url.Parse("http://192.168.10.171:8002")
         http.Handle("moist.axelelmarsson.se/", httputil.NewSingleHostReverseProxy(moist))
         http.Handle("www.moist.axelelmarsson.se/", httputil.NewSingleHostReverseProxy(moist))
         
         //Base page
-        basepage, _ := url.Parse("http://192.168.10.171:8000")
+        basepage, _ := url.Parse("http://192.168.10.171:8001")
         http.Handle("axelelmarsson.se/", httputil.NewSingleHostReverseProxy(basepage))
         http.Handle("www.axelelmarsson.se/", httputil.NewSingleHostReverseProxy(basepage))
 
