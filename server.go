@@ -10,6 +10,7 @@ import (
     "os"
     "github.com/kjk/dailyrotate"
     "path/filepath"
+    "time"
 )
 
 func main() {
@@ -52,7 +53,6 @@ func main() {
         basepage, _ := url.Parse("http://192.168.10.171:8001")
         http.Handle("axelelmarsson.se/", httputil.NewSingleHostReverseProxy(basepage))
         http.Handle("www.axelelmarsson.se/", httputil.NewSingleHostReverseProxy(basepage))
-
 
         //Elmarsson.se
         http.HandleFunc("www.elmarsson.se/", elmarsson)
@@ -107,7 +107,7 @@ func writeToLog(msg string) error {
 
 func logRequest(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        err := writeToLog(fmt.Sprintf("%s %s %s %s %d\n", r.RemoteAddr, r.Method, r.Host, r.URL, r.ContentLength))
+        err := writeToLog(fmt.Sprintf("%s %s %s %s %s %d\n", time.Now().Format("2006-01-02 15:04:05"), r.RemoteAddr, r.Method, r.Host, r.URL, r.ContentLength))
         if err != nil {
             log.Fatalf("writeToLog() failed with '%s'\n", err)
         }
