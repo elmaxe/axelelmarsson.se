@@ -57,6 +57,9 @@ const App = () => {
 
                     </p>
             </div>
+            <div className="TextLink">
+                <a href="#" title="Under konstruktion">Projekt</a>
+            </div>
             <div className="Fötter">
                 Skrivet i React.js av Axel Elmarsson 2020
             </div>
