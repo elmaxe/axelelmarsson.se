@@ -54,6 +54,11 @@ func main() {
         http.Handle("axelelmarsson.se/", httputil.NewSingleHostReverseProxy(basepage))
         http.Handle("www.axelelmarsson.se/", httputil.NewSingleHostReverseProxy(basepage))
 
+	//Olprovning
+        olprovning, _ := url.Parse("http://192.168.10.171:8003")
+        http.Handle("olprovning.axelelmarsson.se/", httputil.NewSingleHostReverseProxy(olprovning))
+        http.Handle("www.olprovning.axelelmarsson.se/", httputil.NewSingleHostReverseProxy(olprovning))
+
         //Elmarsson.se
         http.HandleFunc("www.elmarsson.se/", elmarsson)
         http.HandleFunc("elmarsson.se/", elmarsson)
