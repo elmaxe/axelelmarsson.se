@@ -5,7 +5,15 @@
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgba(255, 255, 255, 0); */
+}
+
+.particles {
+    /* background-color: white; */
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
 }
 
 h1 {
@@ -85,4 +93,9 @@ p {
     font-family: 'Inconsolata', monospace;
     margin-bottom: 1vh;
     color: rgb(100, 100, 100)
+}
+@media screen and (max-width: 600px) {
+    .Fötter {
+        display: none;
+    }
 }
